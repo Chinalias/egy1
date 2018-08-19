@@ -118,6 +118,13 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		const embedNP = new Discord.RichEmbed()
 	.setDescription(`:notes: الان يتم تشغيل : **${serverQueue.songs[0].title}**`)
 		return msg.channel.sendEmbed(embedNP);
+
+} else if (mess.startsWith(prefix + 'leave')) {
+        if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
+        message.channel.send('`DONE ✔`');
+        var server = server = servers[message.guild.id];
+        if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+    
 	} else if (command === `queue`) {
 		if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');
 		let index = 0;
